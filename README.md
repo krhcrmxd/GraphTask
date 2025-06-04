@@ -1,54 +1,42 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple educational tool for working with adjacency matrices and graph visualization. It features an interactive 4×4 adjacency matrix editor and a basic graph renderer using SVG.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Input-based 4×4 adjacency matrix:
 
-## Expanding the ESLint configuration
+    -   `0` — no edge
+    -   `1` — one directed edge
+    -   `2` — two directed edges (in both directions)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   Simple SVG-based graph visualization
+-   Nodes are statically positioned
+-   Edges are rendered based on user input
+-   State managed using `useState` from React
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-   **React** (functional components)
+-   **TypeScript**
+-   **Vite**
+-   **Tailwind CSS**
+-   **SVG** for graph rendering
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+-   The matrix is rendered as a `<table>` with `<input>` fields for edge weights
+-   Inputs accept values `0`, `1`, or `2`, and update the internal edge state accordingly
+-   A `<svg>` element displays:
+
+    -   **Vertices** as blue circles
+    -   **Edges** as arrowed lines pre-defined and selected based on state
+
+## Possible Improvements
+
+-   Dynamic matrix sizing
+-   More advanced SVG rendering (curved lines, better layout)
+-   Conversion to graph object or adjacency list
+-   Add algorithms (e.g., pathfinding, cycle detection)
+
+---
